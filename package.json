@@ -1,12 +1,13 @@
 {
-  "name": "ignis",
+  "name": "next13-pwa",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint-format": "prettier ./app --write && eslint --fix ./app"
   },
   "dependencies": {
     "@types/node": "18.16.2",
@@ -15,8 +16,27 @@
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
     "next": "13.3.1",
+    "next-pwa": "^5.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
+  },
+  "precommit": {
+    "run": [
+      "lint-staged"
+    ]
+  },
+  "lint-staged": {
+    "app/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
