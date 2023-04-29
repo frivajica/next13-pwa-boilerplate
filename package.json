@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint-format": "prettier ./app --write && eslint --fix ./app",
+    "lint-format": "prettier ./src --write && eslint --fix ./src",
     "lint-staged": "lint-staged",
     "test": "jest --watch",
     "test:ci": "jest --ci --passWithNoTests"
