@@ -1,0 +1,28 @@
+name: Lint workflow
+
+on:
+  push:
+env:
+  PROJECT_ID: workspace-icalialabs-com
+  REGION: us-east1
+  REPO_NAME: board.icalialabs.com-frontend
+  FRAMEWORK: node
+
+jobs:
+  lint:
+    strategy:
+      fail-fast: true
+
+    name: Lint Files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: "yarn"
+      - run: yarn install --pure-lockfile
+      - name: Run Lint
+        run: yarn eslint ./src
+        id: lint
