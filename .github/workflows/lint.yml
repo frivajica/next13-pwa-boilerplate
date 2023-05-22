@@ -3,9 +3,9 @@ name: Lint workflow
 on:
   push:
 env:
-  PROJECT_ID: workspace-icalialabs-com
+  PROJECT_ID: next-13-pwa
   REGION: us-east1
-  REPO_NAME: board.icalialabs.com-frontend
+  REPO_NAME: next-13-pwa
   FRAMEWORK: node
 
 jobs:
