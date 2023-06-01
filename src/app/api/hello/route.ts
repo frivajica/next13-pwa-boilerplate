@@ -1,4 +1,4 @@
-//eslint-disable-next-line
+// eslint-disable-next-line
 export async function GET(request: Request) {
   return new Response("Hello, Next.js!");
 }

@@ -2,6 +2,7 @@ name: Lint workflow
 
 on:
   push:
+
 env:
   PROJECT_ID: next-13-pwa
   REGION: us-east1

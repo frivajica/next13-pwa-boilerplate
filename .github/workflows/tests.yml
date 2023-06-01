@@ -2,6 +2,7 @@ name: Tests workflow
 
 on:
   push:
+
 env:
   FRAMEWORK: node
 
