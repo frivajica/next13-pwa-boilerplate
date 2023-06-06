@@ -1,0 +1,28 @@
+# Use a Node 16 base image
+FROM node:16 as development
+
+# Setting user as the root user
+USER root
+
+# Installing Docker containers dependencies
+RUN apt-get update -qq \
+    && apt-get install -y nodejs \
+    ca-certificates \
+    curl \
+    git \
+    yarn \
+    sudo \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Setting working directory.
+WORKDIR /workspaces/workspace-icalialabs-com-recruitment
+
+# Keep the node_modules folder. This prevents to re-run yarn install or npm install
+VOLUME /workspaces/workspace-icalialabs-com-recruitment/node_modules
+
+# Copy the root folder to the docker container.
+COPY . .
+
+# Install node dependencies
+RUN yarn install
